@@ -10,46 +10,50 @@ const NewReviewForm = ({ addReview }) => {
     e.preventDefault();
     const newReview = { name, date, summary };
     addReview(newReview);
-    // Clear the form
     setName('');
     setDate('');
     setSummary('');
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Add New Review</h2>
-      <div>
-        <label htmlFor="name">Name:</label>
-        <input
-          type="text"
-          id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="date">Date:</label>
-        <input
-          type="date"
-          id="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="summary">Summary:</label>
-        <textarea
-          id="summary"
-          value={summary}
-          onChange={(e) => setSummary(e.target.value)}
-          required
-        />
-      </div>
-      <button type="submit">Submit Review</button>
-    </form>
+    <div className="new-review-container">
+      <h2 className="new-review-title">Add New Review</h2>
+      <form onSubmit={handleSubmit} className="new-review-form">
+        <div className="form-group">
+          <label htmlFor="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            className="form-input"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="date">Date:</label>
+          <input
+            type="date"
+            id="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            required
+            className="form-input"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="summary">Summary:</label>
+          <textarea
+            id="summary"
+            value={summary}
+            onChange={(e) => setSummary(e.target.value)}
+            required
+            className="form-input form-textarea"
+          />
+        </div>
+        <button type="submit" className="submit-button">Submit Review</button>
+      </form>
+    </div>
   );
 };
 
